@@ -1,79 +1,59 @@
-🌦️ Weather & News Dashboard
-Proyecto de evaluación práctica: integración de APIs públicas usando Python para generar un dashboard diario con información del clima, noticias relevantes y envío automático por correo electrónico.
+📌 Descripción del Proyecto
+Aplicación Python que integra datos meteorológicos y noticias actuales, generando reportes diarios y enviándolos por correo electrónico automáticamente.
 
-📦 Funcionalidades
-✅ Obtener clima actual (OpenWeatherMap)
-✅ Obtener noticias relevantes (NewsAPI)
-✅ Obtener datos del país (REST Countries)
-✅ Generar un reporte diario (JSON y TXT)
-✅ Enviar el reporte por correo automáticamente con la API de Gmail
-🧱 Estructura del Proyecto
-weather_news_dashboard/
-├── config.py
-├── weather_service.py
-├── news_service.py
-├── country_service.py
-├── dashboard.py
-├── gmail_service.py
-├── main.py
-├── requirements.txt
-├── .env              # Claves API 
-├── credentials.json  # OAuth Gmail 
-└── token.json        # Generado automáticamente 
-⚙️ Instalación y Configuración
-1. Clona el repositorio y entra a la carpeta:
-git clone https://github.com/tuusuario/weather_news_dashboard.git
-cd weather_news_dashboard
-2. Crea un entorno virtual:
-python -m venv venv
-source venv/bin/activate        # En Linux/macOS
-venv\Scripts\activate           # En Windows
-3. Instala las dependencias:
-pip install -r requirements.txt
-4. Crea el archivo .env con tus claves:
-OPENWEATHER_API_KEY=tu_api_key_openweather
-NEWS_API_KEY=tu_api_key_newsapi
-5. Habilita Gmail API:
-Ve a Google Cloud Console
-Crea un proyecto nuevo
-Activa la Gmail API
-Crea credenciales OAuth2 (tipo escritorio)
-Descarga el archivo credentials.json y colócalo en la raíz del proyecto
-🚀 Ejecución
-python main.py
-Esto generará:
+🌟 Características Principales
+Datos climáticos en tiempo real de OpenWeatherMap API
 
-reporte_diario.json
-reporte_diario.txt
-Un correo será enviado automáticamente con el contenido del reporte
-📬 Automatización
-Puedes automatizar la ejecución con tareas programadas o cron.
+Últimas noticias de NewsAPI
 
-Ejemplo cron (envío diario a las 8:00 AM):
-0 8 * * * /ruta/a/tu/proyecto/venv/bin/python /ruta/a/tu/proyecto/main.py
-🌐 APIs Utilizadas
-API	Función	Registro
-OpenWeatherMap	Clima actual y pronóstico	✅
-NewsAPI	Noticias principales o por término	✅
-REST Countries	Información de país (capital, moneda)	❌
-Gmail API	Envío automático del reporte diario	✅
-🧪 Ejemplo de Salida
-Ciudad: La Serena (Chile)
-Capital: Santiago
-Población: 19.1 millones
-Moneda: Peso Chileno
+Envío automático de reportes por correo electrónico
 
-Clima:
-- Descripción: nubes dispersas
-- Temperatura: 17°C
-- Humedad: 68%
-- Viento: 5 km/h
+Almacenamiento local de reportes en formato JSON
 
-Noticias Principales:
-- Gobierno anuncia inversión en infraestructura solar
-- Aumentan los índices de turismo en el norte
+Interfaz de consola clara y detallada
 
-Noticias sobre Clima:
-- Frente frío afectará la zona centro-sur este fin de semana
-📌 Autores
-Elias Martinez - Ivan Orostegui - Fernando
+📦 Requisitos
+Python 3.8+
+
+Cuentas en:
+
+OpenWeatherMap
+
+NewsAPI
+
+Google Cloud Platform (para OAuth de Gmail)
+
+🚀 Instalación
+1.Clonar el repositorio: 
+git clone https://github.com/eliasmartinez777/eva2_readyyy
+cd weather-news-dashboard 
+2.Instalar dependencias:
+pip install -r requirements.txt 
+
+3.Configurar credenciales:
+
+Renombrar credentials.example.json a credentials.json 
+⚙️ Configuración
+Editar config.py para personalizar:
+DEFAULT_CITY = "La Serena"  # Ciudad a monitorear
+DEFAULT_COUNTRY = "cl"      # Código de país (CL para Chile)
+SENDER_EMAIL = "tu_email@gmail.com"  # Email re
+🏃‍♂️ Ejecución
+python main.py 
+La primera ejecución abrirá tu navegador para autenticación con Google.
+weather-news-dashboard/
+├── main.py                # Punto de entrada
+├── dashboard.py           # Lógica principal
+├── weather_service.py     # Clima
+├── news_service.py        # Noticias
+├── country_service.py     # Datos de países
+├── email_service.py       # Envío de emails
+├── config.py              # Configuración
+├── credentials.json       # Credenciales Gmail (OAuth)
+├── requirements.txt       # Dependencias
+└── README.md              # Este archivo
+📧 Configuración de Gmail
+Habilitar API Gmail en Google Cloud Console
+Crear credenciales OAuth 2.0
+Descargar archivo JSON y guardar como credentials.json
+Agregar tus claves de API en config.py
